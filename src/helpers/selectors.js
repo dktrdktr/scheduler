@@ -1,6 +1,6 @@
-export function getAppointmentsForDay(state, day) {
+export function getAppointmentsForDay(state) {
   //... returns an array of appointments for that day
-  const { days, appointments } = state;
+  const { day, days, appointments } = state;
   if (days.length === 0) {
     return [];
   }
