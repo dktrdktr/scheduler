@@ -1,6 +1,6 @@
-export function getAppointmentsForDay(state) {
+export function getAppointmentsForDay(state, day) {
   //... returns an array of appointments for that day
-  const { day, days, appointments } = state;
+  const { days, appointments } = state;
   if (days.length === 0) {
     return [];
   }
@@ -16,6 +16,17 @@ export function getAppointmentsForDay(state) {
     }
     return result;
   }, []);
-
   return dayAppointments;
+}
+
+export function getInterview(state, interview) {
+  if (!interview) {
+    return null;
+  }
+  const interviewerId = interview.interviewer;
+  const result = {
+    student: interview.student,
+    interviewer: state.interviewers[interviewerId],
+  };
+  return result;
 }
