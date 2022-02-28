@@ -13,6 +13,7 @@ export default function InterviewerList(props) {
           const { id, name, avatar } = item;
           return (
             <InterviewerListItem
+              key={id}
               id={id}
               name={name}
               avatar={avatar}
