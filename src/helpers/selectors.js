@@ -10,13 +10,13 @@ export function getAppointmentsForDay(state, day) {
     return [];
   }
   const appointmentIds = dayObj.appointments;
-  const dayAppointments = appointmentIds.reduce((result, item) => {
+  const appointmentsForDay = appointmentIds.reduce((result, item) => {
     if (appointments[item]) {
       result.push(appointments[item]);
     }
     return result;
   }, []);
-  return dayAppointments;
+  return appointmentsForDay;
 }
 
 export function getInterview(state, interview) {
@@ -32,8 +32,7 @@ export function getInterview(state, interview) {
 }
 
 export function getInterviewersForDay(state, day) {
-  //... returns an array of appointments for that day
-  console.log(state);
+  //... returns an array of interviewers for that day
   const { days, interviewers } = state;
   if (days.length === 0) {
     return [];
