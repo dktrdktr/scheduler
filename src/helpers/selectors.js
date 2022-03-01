@@ -45,3 +45,14 @@ export function getInterviewersForDay(state, day) {
   const interviewerIds = dayObj[0].interviewers.map((id) => interviewers[id]);
   return interviewerIds;
 }
+
+export function updateSpots(state, appointmentId, operation) {
+  const dayToUpdate = state.days.find((day) =>
+    day.appointments.includes(appointmentId)
+  );
+  if (operation === "cancel") {
+    dayToUpdate.spots++;
+    return;
+  }
+  dayToUpdate.spots--;
+}
