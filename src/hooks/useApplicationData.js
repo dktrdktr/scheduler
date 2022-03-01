@@ -40,7 +40,9 @@ export default function useApplicationData(initial) {
           ...state.appointments,
           [id]: appointment,
         };
-        updateSpots(state, id, "book");
+        if (state.appointments[id].interview === null) {
+          updateSpots(state, id, "book");
+        }
         const newState = {
           ...state,
           appointments,
