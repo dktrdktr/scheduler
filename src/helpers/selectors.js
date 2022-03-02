@@ -47,12 +47,18 @@ export function getInterviewersForDay(state, day) {
 }
 
 export function updateSpots(state, appointmentId, operation) {
-  const dayToUpdate = state.days.find((day) =>
-    day.appointments.includes(appointmentId)
+  const indexOfDayToUpdate = state.days.findIndex(
+    (day) => day.name === state.day
   );
-  if (operation === "cancel") {
+  const daysCopy = [...state.days];
+  const dayToUpdate = daysCopy[indexOfDayToUpdate];
+  if (
+    operation === "book" &&
+    state.appointments[appointmentId].interview === null
+  ) {
+    dayToUpdate.spots--;
+  } else if (operation === "cancel") {
     dayToUpdate.spots++;
-    return;
   }
-  dayToUpdate.spots--;
+  return daysCopy;
 }

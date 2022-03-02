@@ -40,12 +40,11 @@ export default function useApplicationData(initial) {
           ...state.appointments,
           [id]: appointment,
         };
-        if (state.appointments[id].interview === null) {
-          updateSpots(state, id, "book");
-        }
+        const days = updateSpots(state, id, "book");
         const newState = {
           ...state,
           appointments,
+          days,
         };
         setState(newState);
       });
@@ -61,11 +60,13 @@ export default function useApplicationData(initial) {
         ...state.appointments,
         [id]: appointment,
       };
-      updateSpots(state, id, "cancel");
-      setState({
+      const days = updateSpots(state, id, "cancel");
+      const newState = {
         ...state,
         appointments,
-      });
+        days,
+      };
+      setState(newState);
     });
   }
 
