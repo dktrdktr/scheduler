@@ -4,6 +4,20 @@
 - A user can switch between weekdays and book, cancel or edit an interview.
 - The list of days informs the user how many slots are available for each day.
 
+# Screenshots
+
+### Booking and deleting an appointment
+
+![Booking and deleting an appointment](https://github.com/dktrdktr/scheduler/blob/master/docs/booking-and-deleting-an-appointment.gif)
+
+### Editing an appointment
+
+![Editing an appointment](https://github.com/dktrdktr/scheduler/blob/master/docs/editing-appointment.gif)
+
+### Appointment Form Flow Diagram
+
+![Appointment Form Flow Diagram](https://github.com/dktrdktr/scheduler/blob/master/docs/appointment-form-flow-diagram.png)
+
 # Stack:
 
 ## Front-end:
@@ -25,20 +39,6 @@
 
 - [Jest](https://jestjs.io/)
 - [Cypress](https://www.cypress.io/)
-
-# Screenshots
-
-### Booking and deleting an appointment
-
-![Booking and deleting an appointment](https://github.com/dktrdktr/scheduler/blob/master/docs/booking-and-deleting-an-appointment.gif)
-
-### Editing an appointment
-
-![Editing an appointment](https://github.com/dktrdktr/scheduler/blob/master/docs/editing-appointment.gif)
-
-### Appointment Form Flow Diagram
-
-![Appointment Form Flow Diagram](https://github.com/dktrdktr/scheduler/blob/master/docs/appointment-form-flow-diagram.png)
 
 # Setup Instructions
 
