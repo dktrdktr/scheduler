@@ -1,7 +1,7 @@
 # Interview Scheduler
 
 - Single page application (SPA) called Interview Scheduler, built using React.
-- A user can switch between weekdays and book, cancel or edit an interview.
+- A user can switch between weekdays and book, cancel or edit interviews.
 - The list of days informs the user how many slots are available for each day.
 
 # Screenshots
