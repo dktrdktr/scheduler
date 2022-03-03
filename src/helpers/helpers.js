@@ -8,7 +8,6 @@
  */
 
 export function updateSpots(state, appointments, id) {
-  console.log(typeof state, typeof appointments, typeof id);
   // return an updated days array
   const updatedDays = state.days.map((day) => {
     if (day.appointments.includes(id)) {
