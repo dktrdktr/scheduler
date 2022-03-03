@@ -19,6 +19,8 @@
 
 ![Appointment Form Flow Diagram](https://github.com/dktrdktr/scheduler/blob/master/docs/appointment-form-flow-diagram.png)
 
+![Interview Scheduler Dashboard](https://github.com/dktrdktr/scheduler/blob/master/docs/interview-scheduler-dashboard.png)
+
 # Stack:
 
 ## Front-end:
