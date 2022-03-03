@@ -46,21 +46,3 @@ export function getInterviewersForDay(state, day) {
   const interviewerIds = dayObj[0].interviewers.map((id) => interviewers[id]);
   return interviewerIds;
 }
-
-export function updateSpots(state, appointmentId, operation) {
-  // returns a copy of state.days object with updated spots property for a selected day
-  const indexOfDayToUpdate = state.days.findIndex(
-    (day) => day.name === state.day
-  );
-  const daysCopy = [...state.days];
-  const dayToUpdate = daysCopy[indexOfDayToUpdate];
-  if (
-    operation === "book" &&
-    state.appointments[appointmentId].interview === null
-  ) {
-    dayToUpdate.spots--;
-  } else if (operation === "cancel") {
-    dayToUpdate.spots++;
-  }
-  return daysCopy;
-}

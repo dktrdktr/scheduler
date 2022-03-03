@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { updateSpots } from "../helpers/selectors";
+import { updateSpots } from "../helpers/helpers";
 
 export default function useApplicationData(initial) {
   const [state, setState] = useState({
@@ -39,13 +39,11 @@ export default function useApplicationData(initial) {
           ...state.appointments,
           [id]: appointment,
         };
-        const days = updateSpots(state, id, "book");
-        const newState = {
-          ...state,
+        setState((prev) => ({
+          ...prev,
           appointments,
-          days,
-        };
-        setState(newState);
+          days: updateSpots(prev, appointments, id),
+        }));
       });
   }
 
@@ -59,13 +57,11 @@ export default function useApplicationData(initial) {
         ...state.appointments,
         [id]: appointment,
       };
-      const days = updateSpots(state, id, "cancel");
-      const newState = {
-        ...state,
+      setState((prev) => ({
+        ...prev,
         appointments,
-        days,
-      };
-      setState(newState);
+        days: updateSpots(prev, appointments, id),
+      }));
     });
   }
 
