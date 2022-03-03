@@ -10,7 +10,7 @@ import {
 } from "../helpers/selectors";
 
 export default function Application(props) {
-  const { state, setDay, bookInterview, deleteInterview } =
+  const { state, setDay, bookInterview, cancelInterview } =
     useApplicationData();
 
   const interviewers = getInterviewersForDay(state, state.day);
@@ -23,13 +23,11 @@ export default function Application(props) {
           interview={getInterview(state, appointment.interview)}
           interviewers={interviewers}
           bookInterview={bookInterview}
-          deleteInterview={deleteInterview}
+          cancelInterview={cancelInterview}
         />
       );
     }
   );
-
-  console.log("state", state);
 
   return (
     <main className="layout">

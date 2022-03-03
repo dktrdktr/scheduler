@@ -1,5 +1,5 @@
 export function getAppointmentsForDay(state, day) {
-  //... returns an array of appointments for that day
+  // returns an array of appointments for a given day
   const { days, appointments } = state;
   if (days.length === 0) {
     return [];
@@ -20,6 +20,7 @@ export function getAppointmentsForDay(state, day) {
 }
 
 export function getInterview(state, interview) {
+  // returns an interview object with full data of the interviewer
   if (!interview) {
     return null;
   }
@@ -32,7 +33,7 @@ export function getInterview(state, interview) {
 }
 
 export function getInterviewersForDay(state, day) {
-  //... returns an array of interviewers for that day
+  // returns an array of interviewers for a given day
   const { days, interviewers } = state;
   if (days.length === 0) {
     return [];
@@ -47,6 +48,7 @@ export function getInterviewersForDay(state, day) {
 }
 
 export function updateSpots(state, appointmentId, operation) {
+  // returns a copy of state.days object with updated spots property for a selected day
   const indexOfDayToUpdate = state.days.findIndex(
     (day) => day.name === state.day
   );
