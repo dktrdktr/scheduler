@@ -28,6 +28,7 @@
 ## Front-end:
 
 - [React](https://reactjs.org/)
+- [Axios](https://www.npmjs.com/package/react-axios)
 - [Storybook](https://storybook.js.org/)
 - [SASS](https://sass-lang.com/)
 
@@ -47,7 +48,9 @@
 
 # Setup Instructions
 
-Install dependencies with `npm install`.
+- Install dependencies with `npm install`.
+
+- Set up the development server [Scheduler API](https://github.com/dktrdktr/scheduler-api)
 
 ## Run Webpack Development Server
 
