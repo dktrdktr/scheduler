@@ -5,23 +5,30 @@ export default function useVisualMode(initial) {
   const [history, setHistory] = useState([initial]);
 
   const transition = (newMode, replace = false) => {
-    const newHistory = [...history];
-    if (replace) {
-      newHistory.splice(-1, 1, newMode);
-    } else {
-      newHistory.push(newMode);
-    }
-    setHistory(newHistory);
+    // working with (prev) state to avoid stale state problem
+    setHistory((prev) => {
+      const newHistory = [...prev];
+      if (replace) {
+        // replace the last history item with the new mode
+        newHistory.splice(-1, 1, newMode);
+      } else {
+        newHistory.push(newMode);
+      }
+      return newHistory;
+    });
     setMode(newMode);
   };
 
   const back = () => {
-    if (history.length !== 1) {
-      const historyCopy = [...history];
-      historyCopy.pop();
-      setHistory(historyCopy);
-      setMode(historyCopy.slice(-1)[0]);
+    // execute only if history is longer than 1
+    if (history.length > 1) {
+      const newHistory = [...history];
+      // remove the last history item and update the history
+      newHistory.pop();
+      setHistory(newHistory);
+      // set mode to the last item in history
+      setMode(newHistory.slice(-1)[0]);
     }
   };
-  return { mode, transition, back };
+  return { mode, transition, back, history };
 }

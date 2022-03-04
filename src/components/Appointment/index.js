@@ -44,7 +44,6 @@ export default function Appointment(props) {
       .then(() => transition(EMPTY))
       .catch((err) => transition(ERROR_DELETE, true));
   }
-
   return (
     <article className="appointment">
       <Header time={time}></Header>

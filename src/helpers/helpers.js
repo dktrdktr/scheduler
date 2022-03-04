@@ -13,7 +13,7 @@ export function updateSpots(state, appointments, id) {
     if (day.appointments.includes(id)) {
       const updatedDay = {
         ...day,
-        // calculate spots based on the number of null interview values in the new appointments object
+        // calculate spots based on the number of null interview values in the new appointments array
         spots: day.appointments.filter(
           (slotId) => !appointments[slotId].interview
         ).length,
