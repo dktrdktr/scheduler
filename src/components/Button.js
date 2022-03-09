@@ -4,12 +4,11 @@ import classNames from "classnames";
 import "components/Button.scss";
 
 export default function Button(props) {
-  let buttonClass = "button";
   const { confirm, danger } = props;
 
-  buttonClass += classNames({
-    " button--confirm": confirm,
-    " button--danger": danger,
+  const buttonClass = classNames("button", {
+    "button--confirm": confirm,
+    "button--danger": danger,
   });
 
   return (
