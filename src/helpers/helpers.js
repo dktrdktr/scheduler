@@ -1,5 +1,5 @@
 /**
- * Update Spots for current day.
+ * Generate a days array with updated spots count
  *
  * @param {Object}   state           State object
  * @param {Array}   appointments    New appointments array
@@ -7,7 +7,7 @@
  * @return {Array}   A Days array we can save back into state.
  */
 
-export function updateSpots(state, appointments, id) {
+export function genDaysArray(state, appointments, id) {
   // return an updated days array
   const updatedDays = state.days.map((day) => {
     if (day.appointments.includes(id)) {

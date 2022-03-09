@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { updateSpots } from "../helpers/helpers";
+import { genDaysArray } from "../helpers/helpers";
 
 export default function useApplicationData(initial) {
   const [state, setState] = useState({
@@ -42,7 +42,7 @@ export default function useApplicationData(initial) {
         setState((prev) => ({
           ...prev,
           appointments,
-          days: updateSpots(prev, appointments, id),
+          days: genDaysArray(prev, appointments, id),
         }));
       });
   }
@@ -60,7 +60,7 @@ export default function useApplicationData(initial) {
       setState((prev) => ({
         ...prev,
         appointments,
-        days: updateSpots(prev, appointments, id),
+        days: genDaysArray(prev, appointments, id),
       }));
     });
   }
