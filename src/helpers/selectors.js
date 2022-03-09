@@ -38,11 +38,11 @@ export function getInterviewersForDay(state, day) {
   if (days.length === 0) {
     return [];
   }
-  const dayObj = days.filter((item) => item.name === day);
+  const dayObj = days.find((item) => item.name === day);
 
   if (!dayObj) {
     return [];
   }
-  const interviewerIds = dayObj[0].interviewers.map((id) => interviewers[id]);
+  const interviewerIds = dayObj.interviewers.map((id) => interviewers[id]);
   return interviewerIds;
 }
