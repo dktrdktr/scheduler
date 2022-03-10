@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { genDaysArray } from "../helpers/helpers";
+require("dotenv");
 
 export default function useApplicationData(initial) {
   const [state, setState] = useState({
@@ -9,6 +10,20 @@ export default function useApplicationData(initial) {
     appointments: {},
     interviewers: {},
   });
+
+  useEffect(() => {
+    const webSocketUrl = process.env.REACT_APP_WEBSOCKET_URL;
+    const ws = new WebSocket(webSocketUrl);
+    ws.onopen = () => {
+      ws.send("ping");
+    };
+    ws.onmessage = (event) => {
+      console.log(`Message received: ${event.data}`);
+    };
+    return () => {
+      ws.close();
+    };
+  }, []);
 
   useEffect(() => {
     Promise.all([
